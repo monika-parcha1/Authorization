@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layout from "./components/layout";
+import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-dom";
+import { routes } from "./routes";
+import PublicRoutes from "./routes/publicRoutes";
+import PrivateRoutes from "./routes/privateRoutes";
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Route 
+       exact
+       path="/"
+       render={() => {
+           return <Redirect to="/welcome"/> 
+       }}
+      />
+      {routes.map((route) => {
+       const Route = route.isPublic ? (
+          <PublicRoutes path={route.path} exact component={route.component} />
+        ) : (
+          <PrivateRoutes path={route.path} exact component={route.component} />
+        );
+        return Route;
+      })}
+    </Layout>
   );
 }
 

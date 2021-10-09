@@ -13,15 +13,51 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  list-style: none;
+  background-color: blanchedalmond;
+}
+.header > li {
+padding: 5px;
+}
+
+ 
+
+.contentCenter {
+  display: flex;
+    justify-content: center
+}
+
+table,td,th {
+  border : 1px solid black;
+  padding: 5px;
+}
+
+.product{
+  display: flex;
+    justify-content: space-evenly;
+    background-color: aquamarine;
+    margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(85, 28, 160);
+  font-weight: bolder;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.headerNav{
+  display: flex;
 }
 
 .App-link {
